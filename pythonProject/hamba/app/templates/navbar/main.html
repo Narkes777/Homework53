@@ -1,0 +1,37 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <h1>MAIN PAGE </h1>
+
+
+    <nav>
+        <div>
+            <ul>
+                <li><a href="{%url 'human_list'%}">People</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    {% block div %}
+    {% endblock$}
+
+
+    <div class="paginator">
+    {% if page_obj %}
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+    {% endif %}
+    Часть № {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+    {% endif %}
+  {% endif %}
+</div>
+</body>
+</html>

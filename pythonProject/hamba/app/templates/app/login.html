@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Вход</h2>
+    {% if user.is_authenticated %}
+    <p>Вы уже вошли в сеть</p>
+    {% else %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" value="{{ next }}">
+        <input type="submit" value="Войти">
+    </form>
+    {% endif %}
+
+
+</body>
+</html>

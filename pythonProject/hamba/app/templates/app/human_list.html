@@ -1,0 +1,9 @@
+{% extends 'navbar/main.html' %}
+
+
+{% block div %}
+{% for human in people %}
+    <p>{{ human.name }}</p>
+    <p>{{ human.age }}</p>
+    {% endfor %}
+{% endblock%}
